@@ -10,11 +10,19 @@ public class Player : MonoBehaviour
     [SerializeField] float paddingRight;
     [SerializeField] float paddingTop;
     [SerializeField] float paddingBottom;
+    [SerializeField] float paralaxEffectFactor = 12f;
 
     Vector2 moveInput;
-
     Vector2 minBounds;
     Vector2 maxBounds;
+    GameObject background;
+    Vector2 backgroundOffset;
+
+    void Awake()
+    {
+        //move also the Background object in paralax effect
+        background = GameObject.Find("Background");
+    }
 
     void Start()
     {
@@ -25,6 +33,8 @@ public class Player : MonoBehaviour
         maxBounds.x -= paddingRight;
         minBounds.y += paddingBottom;
         maxBounds.y -= paddingTop;
+
+        backgroundOffset = (Vector2)background.transform.position + new Vector2(transform.position.x / paralaxEffectFactor, transform.position.y / paralaxEffectFactor);
     }
 
     void OnMove(InputValue value)
@@ -51,11 +61,9 @@ public class Player : MonoBehaviour
 
         transform.position = newPosition;
 
-        //move also the Background object in paralax effect
-        GameObject background = GameObject.Find("Background");
         if (background != null)
         {
-            background.transform.position = new Vector3(newPosition.x / 4, newPosition.y / 4, background.transform.position.z);
+            background.transform.position = backgroundOffset - new Vector2(newPosition.x / paralaxEffectFactor, newPosition.y / paralaxEffectFactor);
         }
     }
 }

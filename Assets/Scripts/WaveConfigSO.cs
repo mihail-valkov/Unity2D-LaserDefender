@@ -5,12 +5,19 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Wave Config", fileName = "New Wave Config")]
 public class WaveConfigSO : ScriptableObject
 {
+    [SerializeField] float initialDelay = 0.5f;
+    [SerializeField] List<GameObject> enemyPrefabs;
     [SerializeField] Transform pathPrefab;
     [SerializeField] float moveSpeed = 5f;
 
     public float GetMoveSpeed()
     {
         return moveSpeed;
+    }
+
+    public float GetInitialDelay()
+    {
+        return initialDelay;
     }
 
     public Transform GetStartWaypoint()
@@ -28,5 +35,15 @@ public class WaveConfigSO : ScriptableObject
         }
 
         return waveWaypoints;
+    }
+
+    public int GetEnnemyCount()
+    {
+        return enemyPrefabs.Count;
+    }
+
+    public GameObject GetEnemyPrefab(int index)
+    {
+        return enemyPrefabs[index];
     }
 }
