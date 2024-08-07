@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,17 +12,23 @@ public class Player : MonoBehaviour
     [SerializeField] float paddingTop;
     [SerializeField] float paddingBottom;
     [SerializeField] float paralaxEffectFactor = 12f;
+    [SerializeField] float fireInterval = 0.5f;
+
 
     Vector2 moveInput;
     Vector2 minBounds;
     Vector2 maxBounds;
     GameObject background;
     Vector2 backgroundOffset;
+    LaserShooter laserShooter;
+    private bool isFiring = false;
+    private float lastFireTime;
 
     void Awake()
     {
         //move also the Background object in paralax effect
         background = GameObject.Find("Background");
+        laserShooter = GetComponent<LaserShooter>();
     }
 
     void Start()
@@ -45,8 +52,9 @@ public class Player : MonoBehaviour
     void Update()
     {
         Move();
+        Fire();
     }
-
+    
     private void Move()
     {
 
@@ -65,5 +73,22 @@ public class Player : MonoBehaviour
         {
             background.transform.position = backgroundOffset - new Vector2(newPosition.x / paralaxEffectFactor, newPosition.y / paralaxEffectFactor);
         }
+    }
+
+    void Fire()
+    {
+        if (isFiring)
+        {
+            if (Time.time - lastFireTime > fireInterval)
+            {
+                laserShooter.Fire();
+                lastFireTime = Time.time;
+            }
+        }
+    }
+
+    void OnFire(InputValue value)
+    {
+        isFiring = value.isPressed;
     }
 }

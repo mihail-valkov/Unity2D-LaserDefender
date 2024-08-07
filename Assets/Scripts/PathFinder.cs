@@ -17,7 +17,14 @@ public class PathFinder : MonoBehaviour
 
     void Start()
     {
+        if (!enemySpawner)
+            return;
+
         waveConfig = enemySpawner.GetWaveConfig();
+
+        if (!waveConfig)
+            return;
+            
         waypoints = waveConfig.GetWaypoints();
     }
 
@@ -29,6 +36,9 @@ public class PathFinder : MonoBehaviour
 
     private void FollowWaypoints()
     {
+        if (waypoints == null)
+            return;
+
         if (currentWaypointIndex >= waypoints.Count)
         {
             Destroy(gameObject);
