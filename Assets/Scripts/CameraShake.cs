@@ -21,7 +21,7 @@ public class CameraShake : MonoBehaviour
 
             elapsed += Time.deltaTime;
 
-            yield return null;
+            yield return new WaitForEndOfFrame();
         }
 
         transform.localPosition = originalPos;

@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: -1599187204590614438}
   m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,6 +103,10 @@ MonoBehaviour:
   deathVFX: {fileID: 0}
   hitEffectPrefab: {fileID: 6319766688167182124, guid: 2bc72ad23d9e77c44b5a92f6e51b7461, type: 3}
   explodeEffectPrefab: {fileID: 4487594760741284770, guid: b5ebdbb1f5485664d8e749f27a512027, type: 3}
+  crashSounds:
+  - {fileID: 8300000, guid: 84ed498c1e0d87b4eb7485ef0e9ef28b, type: 3}
+  hitClip: {fileID: 8300000, guid: 8b5bbc69a3fe3d74088ec9039ecb4b24, type: 3}
+  explosionSoundVolume: 0.5
 --- !u!114 &-3591234070837557719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,6 +121,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   laserPrefab: {fileID: 5099145168850023546, guid: 95ab6611d37a14a4ca0cfa75c3141b76, type: 3}
   isEnemyLaser: 0
+  laserSounds:
+  - {fileID: 8300000, guid: 19d55d8af5293f545a5448dac8765aa5, type: 3}
 --- !u!212 &8847542285045554767
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -14,7 +14,6 @@ public class Player : MonoBehaviour
     [SerializeField] float paralaxEffectFactor = 12f;
     [SerializeField] float fireInterval = 0.5f;
 
-
     Vector2 moveInput;
     Vector2 minBounds;
     Vector2 maxBounds;
@@ -27,7 +26,7 @@ public class Player : MonoBehaviour
     void Awake()
     {
         //move also the Background object in paralax effect
-        background = GameObject.Find("Background");
+        background = GameObject.Find("stars_1");
         laserShooter = GetComponent<LaserShooter>();
     }
 

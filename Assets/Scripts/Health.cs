@@ -9,6 +9,10 @@ public class Health : MonoBehaviour
     [SerializeField] GameObject deathVFX;
     [SerializeField] ParticleSystem hitEffectPrefab;
     [SerializeField] ParticleSystem explodeEffectPrefab;
+    [SerializeField] AudioClip[] crashSounds;
+    [SerializeField] AudioClip hitClip;
+
+    [Range(0, 1)][SerializeField] float explosionSoundVolume = 0.5f;
 
     CameraShake cameraShake;
 
@@ -39,10 +43,15 @@ public class Health : MonoBehaviour
             ParticleSystem hitEffect = Instantiate(hitEffectPrefab, transform);
             Destroy(hitEffect.gameObject, hitEffect.main.duration + hitEffect.main.startLifetime.constantMax);
         }
+        if (hitClip)
+        {
+            GameManager.Instance.PlayClip(hitClip, explosionSoundVolume, transform.position);
+        }
     }
 
     private void TriggerDeathVFX()
     {
+        GameManager.Instance.PlayRandomClip(crashSounds, explosionSoundVolume, transform.position);
         ParticleSystem hitEffect = Instantiate(explodeEffectPrefab, transform.position, Quaternion.identity);
         Destroy(hitEffect.gameObject, hitEffect.main.duration + hitEffect.main.startLifetime.constantMax);
     }

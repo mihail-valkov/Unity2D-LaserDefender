@@ -94,6 +94,12 @@ MonoBehaviour:
   deathVFX: {fileID: 0}
   hitEffectPrefab: {fileID: 6319766688167182124, guid: 2bc72ad23d9e77c44b5a92f6e51b7461, type: 3}
   explodeEffectPrefab: {fileID: 4487594760741284770, guid: b5ebdbb1f5485664d8e749f27a512027, type: 3}
+  crashSounds:
+  - {fileID: 8300000, guid: 84ed498c1e0d87b4eb7485ef0e9ef28b, type: 3}
+  - {fileID: 8300000, guid: 44d3ce4c33521e945bb6530730e4cd03, type: 3}
+  - {fileID: 8300000, guid: 262513e96c9c40e4bb424137f3f47673, type: 3}
+  hitClip: {fileID: 8300000, guid: 8b5bbc69a3fe3d74088ec9039ecb4b24, type: 3}
+  explosionSoundVolume: 0.5
 --- !u!114 &8571469443021301449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,6 +114,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   laserPrefab: {fileID: 9166887256284026988, guid: 543793e4bcef58d4391409d3725e1efb, type: 3}
   isEnemyLaser: 1
+  laserSounds:
+  - {fileID: 8300000, guid: 9a0216f7f7efe3e46b84f06fcf9284e4, type: 3}
+  - {fileID: 8300000, guid: cd635b48a22a77f4eac2ed0dd4ba6a9d, type: 3}
+  - {fileID: 8300000, guid: cf3d093f556c77c4aa1798df4b75d2a9, type: 3}
+  - {fileID: 8300000, guid: 9acf0d654841b534097d8ce033b92131, type: 3}
+  fireSoundVolume: 0.4
 --- !u!212 &4787283833229943305
 SpriteRenderer:
   m_ObjectHideFlags: 0
