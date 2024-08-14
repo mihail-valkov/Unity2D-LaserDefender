@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -8,6 +9,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] float maxShootInterval = 1f;
     float nextShootTime;
     private LaserShooter laserShooter;
+
+    [SerializeField] int killScore = 10;
+    public int KillScore { get { return killScore; } }
 
     void Awake()
     {

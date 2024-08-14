@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Build.Content;
@@ -14,7 +15,15 @@ public class Health : MonoBehaviour
 
     [Range(0, 1)][SerializeField] float explosionSoundVolume = 0.5f;
 
+    ScoreDisplay scoreDisplay;
+
     CameraShake cameraShake;
+
+
+    void Awake()
+    {
+        scoreDisplay = FindObjectOfType<ScoreDisplay>();
+    }
 
     void Start()
     {
@@ -32,7 +41,17 @@ public class Health : MonoBehaviour
         if (health <= 0)
         {
             TriggerDeathVFX();
+            KeepScore();
             Destroy(gameObject);
+        }
+    }
+
+    private void KeepScore()
+    {
+        Enemy enemy = GetComponent<Enemy>();
+        if (enemy)
+        {
+            GameManager.Instance.ScoreKeeper.AddScore(enemy.KillScore);
         }
     }
 
@@ -72,6 +91,7 @@ public class Health : MonoBehaviour
         if (CompareTag("Player"))
         { 
             if (cameraShake) cameraShake.Shake();
+            scoreDisplay.UpdateHealthText(health);
             if (health <= 0)
             {
                 GameManager.Instance.GameOver();
