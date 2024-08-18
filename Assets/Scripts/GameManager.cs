@@ -7,6 +7,7 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] float waitForGameOver = 1.5f;
     //Singleton
     public static GameManager Instance { get; private set; }
 
@@ -20,29 +21,38 @@ public class GameManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            GetComponents();
+
+            scoreKeeper = GetComponent<ScoreKeeper>();
             DontDestroyOnLoad(gameObject);
         }
         else
         {
-            GetComponents();
             Destroy(gameObject);
         }
     }
 
-    private void GetComponents()
+
+    public void LoadGameOver()
     {
-        Instance.scoreKeeper = GetComponent<ScoreKeeper>();
-        Instance.scoreDisplay = FindObjectOfType<ScoreDisplay>();
+        //reload scene after 2 seconds
+        StartCoroutine(DelayLoadGameOverScene());
     }
 
-    public void GameOver()
+    private IEnumerator DelayLoadGameOverScene()
     {
-        //reload scene
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        yield return new WaitForSeconds(waitForGameOver);
+        SceneManager.LoadScene("9-GameOverScreen");
+    }
 
-        //reset score
+    public void LoadNewGame()
+    {
         scoreKeeper.ResetScore();
+        SceneManager.LoadScene("1-Level1");
+    }
+
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene("0-StartScreen");
     }
 
     public void PlayRandomClip(AudioClip[] crashSounds, float volume, Vector3? position = null)

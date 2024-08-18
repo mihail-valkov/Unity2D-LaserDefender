@@ -58,11 +58,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
-  m_Name: Symtext SDF
+  m_Name: GameTitleFont
   m_EditorClassIdentifier: 
-  hashCode: 2053309003
+  hashCode: 177042493
   material: {fileID: 2187274932940466523}
-  materialHashCode: -1794542965
+  materialHashCode: -1316489987
   m_Version: 1.1.0
   m_SourceFontFileGUID: 0e4cd80ca1da6144190b0e5a5e492c85
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 0e4cd80ca1da6144190b0e5a5e492c85, type: 3}
@@ -2546,7 +2546,9 @@ Material:
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
+  - BEVEL_ON
   - GLOW_ON
+  - UNDERLAY_ON
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -2597,7 +2599,7 @@ Material:
     - _GlowInner: 0
     - _GlowOffset: 0.54
     - _GlowOuter: 1
-    - _GlowPower: 0.18
+    - _GlowPower: 0.4
     - _GradientScale: 6
     - _LightAngle: 3.1416
     - _MaskSoftnessX: 0
@@ -2634,12 +2636,12 @@ Material:
     m_Colors:
     - _ClipRect: {r: -32767, g: -32767, b: 32767, a: 32767}
     - _EnvMatrixRotation: {r: 0, g: 0, b: 0, a: 0}
-    - _FaceColor: {r: 0.07103128, g: 0, b: 0.6981132, a: 1}
-    - _GlowColor: {r: 0, g: 0.18667984, b: 1, a: 1}
+    - _FaceColor: {r: 0.83137256, g: 0.027450997, b: 0.5749743, a: 1}
+    - _GlowColor: {r: 0.35093117, g: 0, b: 1, a: 1}
     - _MaskCoord: {r: 0, g: 0, b: 32767, a: 32767}
     - _OutlineColor: {r: 0, g: 0.87809396, b: 1, a: 1}
     - _ReflectFaceColor: {r: 0, g: 0, b: 0, a: 1}
     - _ReflectOutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
-    - _UnderlayColor: {r: 0, g: 0, b: 0, a: 0.5}
+    - _UnderlayColor: {r: 0, g: 0.32416415, b: 1, a: 0.65882355}
   m_BuildTextureStacks: []

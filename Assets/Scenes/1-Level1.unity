@@ -277,6 +277,7 @@ MonoBehaviour:
   scoreText: {fileID: 1896992121}
   initialLifeValue: 50
   maxLifeValue: 50
+  playerHealth: {fileID: 122307766333381381}
 --- !u!1 &398357987
 GameObject:
   m_ObjectHideFlags: 0
@@ -1081,6 +1082,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f914fc65a7d0ccb4bbb9df1cf96579de, type: 3}
+--- !u!114 &122307766333381381 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -653418838119538752, guid: f914fc65a7d0ccb4bbb9df1cf96579de, type: 3}
+  m_PrefabInstance: {fileID: 122307766333381380}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc78ea292ff06494f96bcf914fa31e68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &736526149421094845
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1315,10 +1327,10 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 5228626745270632092}
+  - {fileID: 736526149421094845}
   - {fileID: 519420032}
   - {fileID: 122307766333381380}
   - {fileID: 7555096273540873145}
   - {fileID: 4761253934766715024}
   - {fileID: 252506510}
   - {fileID: 438734198}
-  - {fileID: 736526149421094845}

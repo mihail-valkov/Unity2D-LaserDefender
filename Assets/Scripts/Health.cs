@@ -1,7 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Build.Content;
 using UnityEngine;
 
 public class Health : MonoBehaviour
@@ -19,6 +16,11 @@ public class Health : MonoBehaviour
 
     CameraShake cameraShake;
 
+
+    public int HealthValue
+    {
+        get { return health; }
+    }
 
     void Awake()
     {
@@ -91,10 +93,9 @@ public class Health : MonoBehaviour
         if (CompareTag("Player"))
         { 
             if (cameraShake) cameraShake.Shake();
-            scoreDisplay.UpdateHealthText(health);
             if (health <= 0)
             {
-                GameManager.Instance.GameOver();
+                GameManager.Instance.LoadGameOver();
             }
         }
     }

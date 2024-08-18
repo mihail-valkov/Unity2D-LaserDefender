@@ -11,6 +11,7 @@ public class ScoreDisplay : MonoBehaviour
     [SerializeField] TMPro.TextMeshProUGUI scoreText;
     [SerializeField] int initialLifeValue = 50;
     [SerializeField] int maxLifeValue = 50;
+    [SerializeField] Health playerHealth;
 
 
     void Start()
@@ -24,14 +25,20 @@ public class ScoreDisplay : MonoBehaviour
         UpdateHealthText(initialLifeValue);
     }
 
-    public void UpdateScoreText(int score)
+    private void UpdateScoreText(int score)
     {
         scoreText.text = "Score: " + score.ToString();
     }
 
-    public void UpdateHealthText(int life)
+    private void UpdateHealthText(int life)
     {
         //display life in % of maxLifeValue on the health slider
         healthSlider.value = (float)life / (float)maxLifeValue;
+    }
+
+    void Update()
+    {
+        UpdateScoreText(GameManager.Instance.ScoreKeeper.Score);
+        UpdateHealthText(playerHealth.HealthValue);
     }
 }

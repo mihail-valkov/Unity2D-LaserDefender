@@ -8,19 +8,11 @@ public class ScoreKeeper : MonoBehaviour
     private int _score = 0;
     ScoreDisplay scoreDisplay;
 
-    void Awake()
-    {
-        scoreDisplay = FindObjectOfType<ScoreDisplay>();
-    }
 
     public int Score 
     {
         get { return _score; }
-        set
-        { 
-            _score = value;
-            scoreDisplay.UpdateScoreText(Score);
-        }
+        set { _score = value; }
     }
 
     public void ResetScore()
